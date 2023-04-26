@@ -11,6 +11,13 @@ public struct Tile: View {
     design.pixels()
   }
   
+  public init(design: TileDesign, pixelSize: CGFloat = 2.0, foregroundColor: Color = .black, backgroundColor: Color = .white) {
+    self.design = design
+    self.pixelSize = pixelSize
+    self.foregroundColor = foregroundColor
+    self.backgroundColor = backgroundColor
+  }
+  
     public var body: some View {
       VStack(spacing: 0) {
         ForEach(0 ..< 8) { i in
