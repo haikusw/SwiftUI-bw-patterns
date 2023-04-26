@@ -1,16 +1,17 @@
 import SwiftUI
 
-struct Tile: View {
-  
-  let pixelSize: CGFloat = 2.0;
+public struct Tile: View {
   
   let design: TileDesign
+  var pixelSize: CGFloat = 2.0;
+  var foregroundColor: Color = .black
+  var backgroundColor: Color = .white
   
   private var pixels: [Int] {
     design.pixels()
   }
   
-    var body: some View {
+    public var body: some View {
       VStack(spacing: 0) {
         ForEach(0 ..< 8) { i in
           HStack(spacing: 0) {
@@ -18,8 +19,8 @@ struct Tile: View {
               Rectangle()
                 .frame(width: pixelSize, height: pixelSize)
                 .foregroundColor(pixels[(i % 8) * 8 + j % 8] == 0
-                                  ? .black
-                                  : .white
+                                  ? foregroundColor
+                                  : backgroundColor
                 )
             }
           }
@@ -30,6 +31,13 @@ struct Tile: View {
 
 struct Tile_Previews: PreviewProvider {
     static var previews: some View {
-      Tile(design: .grid)
+      VStack {
+        Text("Default")
+        Tile(design: .grid)
+        Text("Color override")
+        Tile(design: .balls, foregroundColor: .pink, backgroundColor: .cyan)
+        Text("Pixel size override")
+        Tile(design: .shingles, pixelSize: 8.0)
+      }
     }
 }

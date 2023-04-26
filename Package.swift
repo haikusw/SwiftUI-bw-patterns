@@ -6,13 +6,13 @@ import PackageDescription
 let package = Package(
     name: "Patterns",
     platforms: [
-      .macOS(.v10_15)
+      .macOS(.v12)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "Patterns",
-            targets: ["Patterns"]),
+            targets: ["Patterns"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -26,6 +26,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "PatternsTests",
-            dependencies: ["Patterns"]),
+            dependencies: ["Patterns"])
     ]
 )
