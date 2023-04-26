@@ -2,12 +2,12 @@ import SwiftUI
 
 public struct PatternPicker: View {
   
-  @Binding var selectedDesign: TileDesign;
+  @Binding public var selectedDesign: TileDesign;
   
-  var selectedColor: Color = .accentColor
-  var pixelSize: CGFloat = 2.0;
-  var foregroundColor: Color = .black
-  var backgroundColor: Color = .white
+  public var selectedColor: Color = .accentColor
+  public var pixelSize: CGFloat = 2.0;
+  public var foregroundColor: Color = .black
+  public var backgroundColor: Color = .white
   
   let patterns = TileDesign.allCases
 

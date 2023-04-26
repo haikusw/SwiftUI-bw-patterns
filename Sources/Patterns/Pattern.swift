@@ -1,15 +1,15 @@
 import SwiftUI
 
 public struct Pattern: View {
+
+  @Binding public var design: TileDesign;
+  public var pixelSize: CGFloat = 2.0;
+  public var foregroundColor: Color = .black
+  public var backgroundColor: Color = .white
   
   private var patternSize: CGFloat {
     pixelSize * 8.0;
   }
-  
-  @Binding var design: TileDesign;
-  var pixelSize: CGFloat = 2.0;
-  var foregroundColor: Color = .black
-  var backgroundColor: Color = .white
   
   public var body: some View {
     GeometryReader { gr in

@@ -2,10 +2,10 @@ import SwiftUI
 
 public struct Tile: View {
   
-  let design: TileDesign
-  var pixelSize: CGFloat = 2.0;
-  var foregroundColor: Color = .black
-  var backgroundColor: Color = .white
+  public let design: TileDesign
+  public var pixelSize: CGFloat = 2.0;
+  public var foregroundColor: Color = .black
+  public var backgroundColor: Color = .white
   
   private var pixels: [Int] {
     design.pixels()
