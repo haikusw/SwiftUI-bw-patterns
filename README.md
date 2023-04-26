@@ -2,7 +2,7 @@
 
 SwiftUI tiling black and white patterns.
 
-This project contains `Patterns`, which are built out of `Tiles` with a given
+This project contains `PatternView`, which is built out of `Tiles` with a given
 `TileDesign`.
 
 It also includes a `TilePicker` that can be used to control the selected
@@ -31,7 +31,7 @@ top left to bottom right)
 
 ## Usage
 
-The `Pattern` view will tile the selected design in its frame. It has the
+The `PatternView` view will tile the selected design in its frame. It has the
 following properties:
 
 * `design: Binding<TileDesign>`: **required**, which design to use to tile the
@@ -41,11 +41,11 @@ following properties:
 * `backgroundColor: Color`: **defaults to `Color.white`**, the background color.
 
 ```
-// Pattern using default settings
-Pattern(design: .constant(TileDesign.shadowGrid))
+// PatternView using default settings
+PatternView(design: .constant(TileDesign.shadowGrid))
 
-// Pattern using overrides
-Pattern(design: $tileDesign, pixelSize: 4.0, foregroundColor: .pink, backgroundColor: .cyan)
+// PatternView using overrides
+PatternView(design: $tileDesign, pixelSize: 4.0, foregroundColor: .pink, backgroundColor: .cyan)
 ```
 
 ### Screenshots of the Patterns
@@ -72,7 +72,7 @@ same effect as `Pattern` mentioned above
 
 ...
 
-Pattern(design: $pattern)
+PatternView(design: $pattern)
   .frame(width: 32.0).border(.black)
   .onTapGesture {
     shouldShowPatternPicker = !shouldShowPatternPicker;
@@ -102,7 +102,7 @@ Pattern(design: $pattern)
 If you'd like to do other things with the individual tiles, we also provide the
 Tile view, which is just a single tile.
 
-The tiles support the same properties as `Pattern` with the exception that
+The tiles support the same properties as `PatternView` with the exception that
 `design` is a `TileDesign` and not a `Binding<TileDesign>`
 
 ![Screenshots of the tiles showing the different overrides](./doc/images/tile_example.png)
