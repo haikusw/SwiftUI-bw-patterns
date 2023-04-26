@@ -1,3 +1,3 @@
 # Patterns
 
-A description of this package.
+SwiftUI tiling black and white patterns
