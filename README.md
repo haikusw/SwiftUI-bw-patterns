@@ -79,3 +79,11 @@ Pattern(design: $pattern)
     shouldShowPatternPicker = false;
   }
 ```
+
+## Supported Platforms
+
+* macOS 12+
+* iOS 15+
+* tvOS ?+
+* watchOS 8+
+* catalyst 15+
