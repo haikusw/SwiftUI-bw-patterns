@@ -13,7 +13,7 @@ design.
 The `TileDesign` enum contains the following patterns (shown in the image from
 top left to bottom right)
 
-![Image showing the included patterns]
+![Image showing the included patterns](./doc/images/patterns.png)
 
 * `.grid`
 * `.dottedGrid`
@@ -34,7 +34,8 @@ top left to bottom right)
 The `Pattern` view will tile the selected design in its frame. It has the
 following properties:
 
-* `design: TileDesign`: **required, @Binding**, which design to tile the frame with.
+* `design: Binding<TileDesign>`: **required**, which design to use to tile the
+  frame.
 * `pixelSize: CGFloat`: **defaults to 2.0**, the size of a pixel in the tile.
 * `foregroundColor: Color`: **defaults to `Color.black`**, the foreground color.
 * `backgroundColor: Color`: **defaults to `Color.white`**, the background color.
@@ -47,12 +48,16 @@ Pattern(design: .constant(TileDesign.shadowGrid))
 Pattern(design: $tileDesign, pixelSize: 4.0, foregroundColor: .pink, backgroundColor: .cyan)
 ```
 
+### Screenshots of the Patterns
+
+![Screenshots of the patterns showing the different overrides](./doc/images/pattern_example.png)
+
 ## Using the PatternPicker
 
 The pattern picker view is intended to be used when you want to allow users to
 change the design of the pattern.
 
-* `selectedDesign: TileDesign`: **required, @Binding**, the current selected
+* `selectedDesign: Binding<TileDesign>`: **required**, the current selected
   tile design.
 * `selectedColor: Color`: **defaults to `Color.accentColor`**, the color of the
   border around the selected tile design.
@@ -80,6 +85,10 @@ Pattern(design: $pattern)
   }
 ```
 
+### Screenshots of the Pattern Picker
+
+![Screenshots of the pattern picker showing the different overrides](./doc/images/pattern_picker_example.png)
+
 ## Supported Platforms
 
 * macOS 12+
@@ -87,3 +96,13 @@ Pattern(design: $pattern)
 * tvOS ?+
 * watchOS 8+
 * catalyst 15+
+
+## The Tile view
+
+If you'd like to do other things with the individual tiles, we also provide the
+Tile view, which is just a single tile.
+
+The tiles support the same properties as `Pattern` with the exception that
+`design` is a `TileDesign` and not a `Binding<TileDesign>`
+
+![Screenshots of the tiles showing the different overrides](./doc/images/tile_example.png)
