@@ -72,7 +72,7 @@ same effect as `Pattern` mentioned above
 
 ...
 
-PatternView(design: $pattern)
+PatternView(design: $design)
   .frame(width: 32.0).border(.black)
   .onTapGesture {
     shouldShowPatternPicker = !shouldShowPatternPicker;
@@ -80,7 +80,7 @@ PatternView(design: $pattern)
   .popover(isPresented: $shouldShowPatternPicker) {
     PatternPicker(selectedDesign: $design)
   }
-  .onChange(of: pattern) { _ in
+  .onChange(of: design) { _ in
     shouldShowPatternPicker = false;
   }
 ```
