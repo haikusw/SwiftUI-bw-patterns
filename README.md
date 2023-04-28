@@ -97,12 +97,16 @@ PatternView(design: $design)
 * watchOS 8+
 * catalyst 15+
 
-## The Tile view
+## The TileImage struct
 
 If you'd like to do other things with the individual tiles, we also provide the
-Tile view, which is just a single tile.
+TileImage struct, which generates a CGImage.
 
-The tiles support the same properties as `PatternView` with the exception that
-`design` is a `TileDesign` and not a `Binding<TileDesign>`
+The tiles support similar properties as `PatternView` with the exception that
+
+* `design: TileDesign`: **required**, which design to use to tile the frame.
+* `pixelSize: CGFloat`: **defaults to 2.0**, the size of a pixel in the tile.
+* `foregroundColor: CGColor`: **defaults to black**, the foreground color.
+* `backgroundColor: CGColor`: **defaults to white**, the background color.
 
 ![Screenshots of the tiles showing the different overrides](./doc/images/tile_example.png)

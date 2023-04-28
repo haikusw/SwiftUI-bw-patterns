@@ -13,7 +13,7 @@ public enum TileDesign: CaseIterable {
   case rhombus
   case balls
   
-  func pixels() -> [Int] {
+  func pixels() -> [UInt8] {
     switch self {
     case .grid:
       return [

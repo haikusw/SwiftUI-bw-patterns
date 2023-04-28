@@ -7,28 +7,31 @@ public struct PatternView: View {
   public var foregroundColor: Color
   public var backgroundColor: Color
   
+  private let image: CGImage
   private var patternSize: CGFloat {
     pixelSize * 8.0;
   }
-  
+
   public init(design: Binding<TileDesign>, pixelSize: CGFloat = 2.0, foregroundColor: Color = .black, backgroundColor: Color = .white) {
     self._design = design
     self.pixelSize = pixelSize
     self.foregroundColor = foregroundColor
     self.backgroundColor = backgroundColor
+    
+    #if os(iOS) || os(watchOS) || os(tvOS)
+      let foregroundCGColor = UIColor(foregroundColor).cgColor
+      let backgroundCGColor = UIColor(backgroundColor).cgColor
+    #else
+      let foregroundCGColor = NSColor(foregroundColor).cgColor
+    let backgroundCGColor = NSColor(backgroundColor).cgColor
+    #endif
+    
+    self.image = TileImage.image(design.wrappedValue, pixelSize: pixelSize, foregroundColor: foregroundCGColor, backgroundColor: backgroundCGColor)
   }
-  
+
   public var body: some View {
     GeometryReader { gr in
-      VStack(spacing: 0) {
-        ForEach(0 ..< 1 + Int(ceil(gr.size.height / patternSize)), id: \.self) { i in
-          HStack(spacing: 0) {
-            ForEach(0 ..< Int(ceil(gr.size.width / patternSize)), id: \.self) { j in
-              Tile(design: design, pixelSize: pixelSize, foregroundColor: foregroundColor, backgroundColor: backgroundColor)
-            }
-          }
-        }
-      }
+      Image(image, scale: 1, label: Text("Test")).resizable(resizingMode: .tile)
     }.drawingGroup()
   }
 }
